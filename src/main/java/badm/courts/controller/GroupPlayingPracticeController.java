@@ -4,13 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import badm.courts.service.WaterService;
+import badm.courts.service.GroupPlayingPracticeService;
 
 @RestController
-@RequestMapping("water")
+@RequestMapping("gpp")
 
-public class WaterController {
-
+public class GroupPlayingPracticeController {
+	
 	@Autowired
-	private WaterService waterService;
+	private GroupPlayingPracticeService groupPlayingPracticeService;
+
 }

@@ -4,13 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import badm.courts.service.WaterService;
+import badm.courts.service.ShoesService;
 
 @RestController
-@RequestMapping("water")
+@RequestMapping("shoes")
 
-public class WaterController {
+public class ShoesController {
 
 	@Autowired
-	private WaterService waterService;
+	private ShoesService shoesService;
 }

@@ -32,6 +32,7 @@ public class User extends IdEntity {
 	@Column(name = "email", nullable = false, unique = true)
 	private String email;
 	
+	@Column(name="phone_number", unique=true, nullable=false   )
 	private String phoneNumber;
 
 }
