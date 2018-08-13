@@ -1,9 +1,19 @@
 package badm.courts.service;
 
-import org.springframework.stereotype.Service;
+import java.util.List;
 
-@Service
+import badm.courts.domain.EquipmentDTO;
 
 public interface EquipmentService {
+
+	void addItem(EquipmentDTO dto);
+
+	EquipmentDTO getEquipmentById(Long id);
+
+	List<EquipmentDTO> getAllEquipments();
+
+	void deleteEquipment();
+
+	void updateEquipment();
 
 }

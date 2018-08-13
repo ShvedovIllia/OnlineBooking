@@ -1,9 +1,18 @@
 package badm.courts.service;
 
-import org.springframework.stereotype.Service;
+import java.util.List;
 
-@Service
+import badm.courts.domain.UserDTO;
 
 public interface UserService {
 
+	void addUser(UserDTO userDTO);
+
+	UserDTO findUserById(Long id);
+
+	List<UserDTO> findAllUsers();
+
+	void deleteUserById(Long id);
+
+	void updateUserById(Long id);
 }

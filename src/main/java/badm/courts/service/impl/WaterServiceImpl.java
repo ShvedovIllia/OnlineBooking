@@ -2,16 +2,20 @@ package badm.courts.service.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import badm.courts.domain.WaterDTO;
 import badm.courts.domain.filter.SimpleFilter;
 import badm.courts.service.WaterService;
 
-public class WaterServiceImpl implements WaterService{
+@Service
+
+public class WaterServiceImpl implements WaterService {
 
 	@Override
 	public void addItem(WaterDTO waterDTO) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -23,13 +27,13 @@ public class WaterServiceImpl implements WaterService{
 	@Override
 	public void deleteWaterById(Long id) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void updateWaterById(Long id) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override

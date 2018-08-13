@@ -1,9 +1,18 @@
 package badm.courts.service;
 
-import org.springframework.stereotype.Service;
+import java.util.List;
 
-@Service
+import badm.courts.domain.CoachDTO;
 
 public interface CoachService {
 
+	void addCoach(CoachDTO coachDTO);
+
+	CoachDTO findCoachById(Long id);
+
+	List<CoachDTO> findAllCoaches();
+
+	void deleteCoachById(Long id);
+
+	void updateCoachById(Long id);
 }

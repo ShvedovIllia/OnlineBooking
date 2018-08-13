@@ -2,6 +2,7 @@ package badm.courts.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -27,5 +28,10 @@ public class Coach extends IdEntity{
 	private Integer age;
 	@Column(name="category", nullable=false)
 	private String category;
+	
+	@OneToOne
+	private GroupPlayingPractice groupPlayingPractice;
+	@OneToOne
+	private GroupStudyPractice groupStudyPractice;
 	
 }

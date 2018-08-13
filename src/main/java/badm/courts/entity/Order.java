@@ -2,9 +2,11 @@ package badm.courts.entity;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -36,4 +38,10 @@ public class Order extends IdEntity {
 
 	@Column(name = "with_coach", nullable = false, columnDefinition = "BOOLEAN")
 	private boolean withCoach;
+	
+	@OneToMany
+	List<Court> courts;
+	
+	@OneToMany
+	private List<Coach> coaches;
 }

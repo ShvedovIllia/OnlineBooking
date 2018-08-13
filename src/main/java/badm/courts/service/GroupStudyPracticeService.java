@@ -1,9 +1,19 @@
 package badm.courts.service;
 
-import org.springframework.stereotype.Service;
+import java.util.List;
 
-@Service
+import badm.courts.domain.GroupStudyPracticeDTO;
 
 public interface GroupStudyPracticeService {
+
+	void addGsp(GroupStudyPracticeDTO dto);
+
+	GroupStudyPracticeDTO getGspById(Long id);
+
+	List<GroupStudyPracticeDTO> getAllGsp();
+
+	void deleteGspById(Long id);
+
+	void updateGspById(Long id);
 
 }

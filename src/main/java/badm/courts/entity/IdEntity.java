@@ -10,16 +10,15 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
-
 @Getter
 @Setter
 @MappedSuperclass
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 
-public class IdEntity{
-	
+public class IdEntity {
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 }

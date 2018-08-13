@@ -1,9 +1,20 @@
 package badm.courts.service;
 
-import org.springframework.stereotype.Service;
+import java.util.List;
 
-@Service
+import badm.courts.domain.OrderDTO;
 
 public interface OrderService {
 
+	void addOrder(OrderDTO orderDTO);
+	
+	OrderDTO getOrderById(Long id);
+	
+	List<OrderDTO> getAllOrders();
+	
+	void deleteOrderById(Long id);
+	
+	void updateOrderById(Long id);
+	
+	
 }

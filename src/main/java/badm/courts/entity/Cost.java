@@ -21,9 +21,9 @@ import lombok.Setter;
 
 public class Cost extends IdEntity{
 	
-	@Column(name="type", nullable=false)
+	@Column(name="title", nullable=false)
 	private String type;
-	@Column(name="price_in_half_hour", columnDefinition="DECIMAL(5,2)")
-	private BigDecimal priceInHalfHour;
+	@Column(name="price", columnDefinition="DECIMAL(5,2)")
+	private BigDecimal price;
 
 }

@@ -1,5 +1,6 @@
 package badm.courts.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -16,8 +17,11 @@ import lombok.Setter;
 @Entity
 @Table(name = "shoes")
 
-public class Shoes extends IdEntity{
+public class Shoes extends IdEntity {
 
+	@Column(name = "size", nullable = false)
 	private Integer size;
-	
+	@Column(name = "model", nullable = false)
+	private String model;
+
 }
