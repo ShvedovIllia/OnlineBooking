@@ -28,5 +28,4 @@ public class Water extends IdEntity{
 	
 	@Column(name="isCarbonared", nullable=false, columnDefinition="BOOLEAN")
 	private boolean isCarbonated;
-
 }

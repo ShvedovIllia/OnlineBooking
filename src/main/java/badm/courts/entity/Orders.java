@@ -6,7 +6,8 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -20,9 +21,9 @@ import lombok.Setter;
 @AllArgsConstructor
 
 @Entity
-@Table(name = "users_order")
+@Table(name = "orders")
 
-public class Order extends IdEntity {
+public class Orders extends IdEntity {
 
 	@Column(name = "date", nullable = false)
 	private LocalDate date;
@@ -39,9 +40,20 @@ public class Order extends IdEntity {
 	@Column(name = "with_coach", nullable = false, columnDefinition = "BOOLEAN")
 	private boolean withCoach;
 	
-	@OneToMany
-	List<Court> courts;
+	@ManyToMany
+	@JoinColumn(name="court_id")
+	private List<Court> courts;
 	
-	@OneToMany
+	@ManyToMany
 	private List<Coach> coaches;
+	
+	@ManyToMany
+	private List<Equipment> equipments;
+	
+	@ManyToMany
+	private List<Shoes> shoes;
+	
+	@ManyToMany
+	private List<Water> water;
+
 }
