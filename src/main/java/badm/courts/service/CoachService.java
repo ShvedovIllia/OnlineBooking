@@ -13,6 +13,4 @@ public interface CoachService {
 	List<CoachDTO> findAllCoaches();
 
 	void deleteCoachById(Long id);
-
-	void updateCoachById(Long id);
 }

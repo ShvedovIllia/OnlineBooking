@@ -28,10 +28,4 @@ public class Coach extends IdEntity{
 	private Integer age;
 	@Column(name="category", nullable=false)
 	private String category;
-	
-	@OneToOne
-	private GroupPlayingPractice groupPlayingPractice;
-	@OneToOne
-	private GroupStudyPractice groupStudyPractice;
-	
 }
