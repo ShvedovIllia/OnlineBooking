@@ -1,9 +1,16 @@
 package badm.courts.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import badm.courts.domain.CoachDTO;
 import badm.courts.service.CoachService;
 
 @RestController
@@ -13,5 +20,18 @@ public class CoachController {
 	
 	@Autowired
 	private CoachService coachService;
+	
+	
+	@PostMapping
+	public ResponseEntity<Void> addCoach(CoachDTO coachDTO){
+		
+		return new ResponseEntity<>(HttpStatus.CREATED);
+	}
+	
+	@GetMapping
+	public ResponseEntity<List<CoachDTO>> getAllCoaches(){
+		return new ResponseEntity<List<CoachDTO>>(HttpStatus.OK);
+		
+	}
 
 }
