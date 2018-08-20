@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import badm.courts.domain.CoachDTO;
-import badm.courts.entity.Coach;
 import badm.courts.service.CoachService;
 
 @RestController
@@ -40,7 +39,6 @@ public class CoachController {
 	@GetMapping
 	public ResponseEntity<CoachDTO> getCoachById(Long id) {
 		return new ResponseEntity<CoachDTO>(coachService.findCoachById(id), HttpStatus.OK);
-
 	}
 
 	@PutMapping
@@ -53,7 +51,7 @@ public class CoachController {
 
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<Void> deleteCoach(@PathVariable("id") Long id) {
-			coachService.deleteCoachById(id);
+		coachService.deleteCoachById(id);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 

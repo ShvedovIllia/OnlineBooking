@@ -12,8 +12,8 @@ public interface WaterService {
 	List<WaterDTO> getAllWater();
 
 	void deleteWaterById(Long id);
-
-	void updateWaterById(Long id);
+	
+	WaterDTO getWaterById(Long id);
 
 	List<WaterDTO> findWaterByTitle(SimpleFilter filter);
 }

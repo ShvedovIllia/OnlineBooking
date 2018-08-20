@@ -12,8 +12,6 @@ public interface EquipmentService {
 
 	List<EquipmentDTO> getAllEquipments();
 
-	void deleteEquipment();
-
-	void updateEquipment();
+	void deleteEquipment(Long id);
 
 }

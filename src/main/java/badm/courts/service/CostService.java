@@ -12,7 +12,5 @@ public interface CostService {
 
 	List<CostDTO> getAllCosts();
 
-	void updateCostById(Long id);
-
 	void deleteCostById(Long id);
 }

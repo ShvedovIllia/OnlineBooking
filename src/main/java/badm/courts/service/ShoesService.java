@@ -14,6 +14,4 @@ public interface ShoesService {
 
 	void deleteShoesById(Long id);
 
-	void updateShoesById(Long id);
-
 }

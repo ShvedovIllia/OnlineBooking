@@ -12,8 +12,6 @@ public interface GroupPlayingPracticeService {
 
 	List<GroupPlayingPracticeDTO> getAllGpp();
 
-	void deleteGpp();
-
-	void updateGpp();
+	void deleteGpp(Long id);
 
 }

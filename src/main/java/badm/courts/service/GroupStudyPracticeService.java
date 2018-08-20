@@ -14,6 +14,4 @@ public interface GroupStudyPracticeService {
 
 	void deleteGspById(Long id);
 
-	void updateGspById(Long id);
-
 }
