@@ -36,12 +36,12 @@ public class CoachController {
 		return new ResponseEntity<List<CoachDTO>>(coachService.findAllCoaches(), HttpStatus.OK);
 	}
 
-	@GetMapping
-	public ResponseEntity<CoachDTO> getCoachById(Long id) {
+	@GetMapping("/get/{id}")
+	public ResponseEntity<CoachDTO> getCoachById(@PathVariable ("id") Long id) {
 		return new ResponseEntity<CoachDTO>(coachService.findCoachById(id), HttpStatus.OK);
 	}
 
-	@PutMapping
+	@PutMapping("/update/{id}")
 	public ResponseEntity<Void> updateCoach(@PathVariable Long id, @RequestBody CoachDTO coachDTO) {
 		coachDTO.setId(id);
 		coachService.addCoach(coachDTO);
