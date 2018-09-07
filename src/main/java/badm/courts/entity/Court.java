@@ -1,7 +1,10 @@
 package badm.courts.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -28,4 +31,6 @@ public class Court extends IdEntity{
 	@Column(name="hall", nullable=false, unique=true)
 	private Integer hall;
 	
+	@ManyToMany
+	private List<Court> courts;
 }
