@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,7 +26,7 @@ public class CourtController {
 	private CourtService courtService;
 
 	@PostMapping("/add")
-	public ResponseEntity<Void> addCourt(CourtDTO courtDTO){
+	public ResponseEntity<Void> addCourt(@RequestBody CourtDTO courtDTO){
 		courtService.addCourt(courtDTO);
 		return new ResponseEntity<Void>(HttpStatus.CREATED);
 	}
@@ -49,7 +50,7 @@ public class CourtController {
 	}
 	
 	@PutMapping("/update/{id}")
-	public ResponseEntity<Void> updateCourt(@PathVariable ("id") Long id, CourtDTO courtDTO){
+	public ResponseEntity<Void> updateCourt(@PathVariable ("id") Long id, @RequestBody CourtDTO courtDTO){
 		courtDTO.setId(id);
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,7 +26,7 @@ public class GroupPlayingPracticeController {
 	private GroupPlayingPracticeService groupPlayingPracticeService;
 	
 	@PostMapping("/add")
-	public ResponseEntity<Void> addGpp(GroupPlayingPracticeDTO dto){
+	public ResponseEntity<Void> addGpp(@RequestBody GroupPlayingPracticeDTO dto){
 		groupPlayingPracticeService.addGPP(dto);
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
@@ -42,7 +43,7 @@ public class GroupPlayingPracticeController {
 	}
 	
 	@PutMapping("/update/{id}")
-	public ResponseEntity<Void> updateGPP(GroupPlayingPracticeDTO dto, @PathVariable ("id") Long id){
+	public ResponseEntity<Void> updateGPP(@RequestBody GroupPlayingPracticeDTO dto, @PathVariable ("id") Long id){
 		dto.setId(id);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}

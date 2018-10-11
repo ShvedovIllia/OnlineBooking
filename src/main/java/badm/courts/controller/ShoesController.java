@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,7 +26,7 @@ public class ShoesController {
 	private ShoesService shoesService;
 
 	@PostMapping
-	public ResponseEntity<Void> addShoes(ShoesDTO dto) {
+	public ResponseEntity<Void> addShoes(@RequestBody ShoesDTO dto) {
 		shoesService.addShoes(dto);
 		return new ResponseEntity<Void>(HttpStatus.CREATED);
 	}
@@ -42,7 +43,7 @@ public class ShoesController {
 	}
 
 	@PutMapping("/update/{id}")
-	public ResponseEntity<Void> updateShoes(@PathVariable("id") Long id, ShoesDTO dto) {
+	public ResponseEntity<Void> updateShoes(@PathVariable("id") Long id, @RequestBody ShoesDTO dto) {
 		dto.setId(id);
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}

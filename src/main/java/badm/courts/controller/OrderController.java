@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,7 +26,7 @@ public class OrderController {
 	private OrderService orderService;
 	
 	@PostMapping("/add")
-	public ResponseEntity<Void> createOrder(OrderDTO dto){
+	public ResponseEntity<Void> createOrder(@RequestBody OrderDTO dto){
 		orderService.addOrder(dto);
 		return new ResponseEntity<Void>(HttpStatus.CREATED);
 	}
@@ -42,7 +43,7 @@ public class OrderController {
 	}
 	
 	@PutMapping("/update/{id}")
-	public ResponseEntity<Void> updateOrder(@PathVariable ("id") Long id, OrderDTO dto){
+	public ResponseEntity<Void> updateOrder(@PathVariable ("id") Long id, @RequestBody OrderDTO dto){
 		dto.setId(id);
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
