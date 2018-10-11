@@ -1,8 +1,7 @@
 package badm.courts.controller;
 
 import java.util.List;
-
-import javax.ws.rs.BadRequestException;
+import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -37,28 +36,32 @@ public class CoachController {
 
 	@GetMapping("/getAll")
 	public ResponseEntity<List<CoachDTO>> getAllCoaches() {
-		log.info("Test");
-		throw new BadRequestException("bad request");
-		//return new ResponseEntity<List<CoachDTO>>(coachService.findAllCoaches(), HttpStatus.OK);
+		log.info("get all coaches");
+		//throw new BadRequestException("bad request");
+		return new ResponseEntity<List<CoachDTO>>(coachService.findAllCoaches(), HttpStatus.OK);
 	}
 
 	@GetMapping("/get/{id}")
 	public ResponseEntity<CoachDTO> getCoachById(@PathVariable ("id") Long id) {
 		log.info("come request to get user by id {}", id);
-//		CoachDTO coachDTO = coachService.findCoachById(id);
-//		if(Objects.isNull(coachDTO)) {
-//			throw new CoachNotFoundException(id, "Coach not found");
-//		} else 
-//		{
-		//return new ResponseEntity<CoachDTO>(coachService.findCoachById(id), HttpStatus.OK);
-		throw new CoachNotFoundException(id, "Coach not found");
+		CoachDTO coachDTO = coachService.findCoachById(id);
+		if(Objects.isNull(coachDTO)) {
+			throw new CoachNotFoundException(id, "Coach not found");
+		} else 
+		{
+		return new ResponseEntity<CoachDTO>(coachService.findCoachById(id), HttpStatus.OK);
+		}
 	}
 
 	@PutMapping("/update/{id}")
 	public ResponseEntity<Void> updateCoach(@PathVariable Long id, @RequestBody CoachDTO coachDTO) {
+		log.info("update coach with id {}", id);
 		coachDTO.setId(id);
 		coachService.addCoach(coachDTO);
-			try {}catch(Exception e) {log.warn("bad update user with id{}", id);}
+		if(Objects.isNull(coachDTO)) {
+			log.warn("coach with id {} not found", id);
+			throw new CoachNotFoundException(id, "Coach not found");
+		} else 
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 

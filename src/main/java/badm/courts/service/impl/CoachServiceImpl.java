@@ -1,12 +1,14 @@
 package badm.courts.service.impl;
 
 import java.util.List;
+import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import badm.courts.domain.CoachDTO;
 import badm.courts.entity.Coach;
+import badm.courts.exception.CoachNotFoundException;
 import badm.courts.repository.CoachRepository;
 import badm.courts.service.CoachService;
 import badm.courts.service.utils.ObjectMapperUtils;
@@ -28,7 +30,11 @@ public class CoachServiceImpl implements CoachService {
 
 	@Override
 	public CoachDTO findCoachById(Long id) {
-		return modelMapper.map(coachRepository.findById(id).get(), CoachDTO.class);
+		CoachDTO coachDTO = modelMapper.map(coachRepository.findById(id).get(), CoachDTO.class);
+		if(Objects.isNull(coachDTO)) {
+			throw new CoachNotFoundException(id, "Coach with id {} not found"); 
+		}
+		return coachDTO;
 	}
 
 	@Override

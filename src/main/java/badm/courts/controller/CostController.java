@@ -26,7 +26,7 @@ public class CostController {
 	private CostService costService;
 
 	@PostMapping("/add")
-	public ResponseEntity<Void> addCost(CostDTO costDTO){
+	public ResponseEntity<Void> addCost(@RequestBody CostDTO costDTO){
 		costService.createCost(costDTO);
 		return new ResponseEntity<Void>(HttpStatus.CREATED);
 	}
